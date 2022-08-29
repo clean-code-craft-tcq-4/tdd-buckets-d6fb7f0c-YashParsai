@@ -49,7 +49,7 @@ void sortReading(int* reading, int size)
   
   for (int i = 0; i < size; i++) 
   {     
-      for (int j = i+1; j < length; j++) 
+      for (int j = i+1; j < size; j++) 
       {     
          if(reading[i] > reading[j]) 
          {    
