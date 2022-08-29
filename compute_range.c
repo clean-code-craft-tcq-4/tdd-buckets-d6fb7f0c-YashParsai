@@ -16,6 +16,7 @@ void compute_range(int* reading, int size)
   int range_count = 0;
   int next_reading;
   int head_reading;
+  int tail_reading;
   
   sortReading(reading, size);
   
