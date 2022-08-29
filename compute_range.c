@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "compute_range.h"
 
 int main()
 {
-  int range_reading[10] = [0,1,2,3,0,6,7,0,10,12];
+  int range_reading[10] = {0,1,2,3,0,6,7,0,10,12};
   compute_range(range_reading, (sizeof(range_reading)/sizeof(int)));
 }
 
@@ -12,10 +13,11 @@ void compute_range(int* reading, int size)
 {
   int index =0;
   int head;
-  int tail;
   int range_count = 0;
+  int next_reading;
+  int head_reading;
   
-  sortReading(readings, size);
+  sortReading(reading, size);
   
   for(index; index < size ;index++)
   {
