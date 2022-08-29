@@ -43,7 +43,7 @@ void compute_range(int* reading, int size)
 }
 
 //Sorting ranges in asceding order
-sortReading(int* reading, int size)
+void sortReading(int* reading, int size)
 {
   int temp;
   
