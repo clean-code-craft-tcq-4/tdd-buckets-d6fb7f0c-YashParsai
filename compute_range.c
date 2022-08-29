@@ -46,7 +46,7 @@ void compute_range(int* reading, int size)
 
 void write_data_to_csv(int head, int tail, int range)
 {
-  FILE* csv_fp = fopen(range_record.csv, "a");
+  FILE* csv_fp = fopen("range_record.csv", "a");
   fprintf(csv_fp,"%d-%d, %d\n",head, tail, range);
   fclose(csv_fp);
 }
