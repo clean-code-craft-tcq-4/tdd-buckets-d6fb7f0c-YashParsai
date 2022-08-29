@@ -16,8 +16,13 @@ int cmpfunc (const void * a, const void * b)
    return ( *(int*)a - *(int*)b );
 }
 
-
 void compute_range(int* reading, int size)
+{
+   qsort(reading, size, sizeof(int), cmpfunc);
+   getRanges(reading, size);
+}
+
+void getRanges(int* reading, int size)
 {
   int index =0;
   int head;
@@ -26,9 +31,7 @@ void compute_range(int* reading, int size)
   int head_reading;
   int tail_reading;
   
-  qsort(reading, size, sizeof(int), cmpfunc);
-  
-  for(index; index < size ;index++)
+  for(; index < size ;index++)
   {
     head = reading[index];
     if(head == 0)
@@ -40,10 +43,7 @@ void compute_range(int* reading, int size)
     
     if((next_reading!=0) && (head == next_reading) || (head+1 == next_reading))
     {
-      if(range_count == 0)
-      {
-        head_reading = head;
-      }
+      getHead(range_count,head,&head_reading);
       range_count++;
     }
     else if(range_count)
@@ -55,11 +55,20 @@ void compute_range(int* reading, int size)
   }
 }
 
+void getHead(int range_count, int head, int* head_reading)
+{
+  if(range_count == 0)
+  {
+    *head_reading = head;
+  }
+}
+
 void write_data_to_file(int head, int tail, int range)
 {
   FILE* fp = fopen("range_record.txt", "a");
   if(fp==NULL)
     assert(0);
+  
   fprintf(fp,"%d-%d, %d\n",head, tail, range);
   fclose(fp);
 }
