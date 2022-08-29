@@ -29,7 +29,6 @@ void getRanges(int* reading, int size)
   int range_count = 0;
   int next_reading;
   int head_reading;
-  int tail_reading;
   
   for(; index < size ;index++)
   {
@@ -40,19 +39,28 @@ void getRanges(int* reading, int size)
     }
     
     next_reading = get_next_reading(index, size, reading);
-    
+    evaluateRange(reading, size, index, head, next_reading, &range_count,&head_reading);
+  }
+}
+
+void evaluateRange(int* reading, int size, int index, int head, int next_reading, int* range_count, int * head_reading)
+{
+
+    int tail_reading;
+
+
     if((next_reading!=0) && (head == next_reading) || (head+1 == next_reading))
     {
-      getHead(range_count,head,&head_reading);
-      range_count++;
+      getHead(*range_count,head,head_reading);
+      (*range_count)++;
     }
-    else if(range_count)
+    else if(*range_count)
     {
       tail_reading = reading[index];
-      write_data_to_file(head_reading, tail_reading, range_count+1);
-      range_count = 0;
+      write_data_to_file(*head_reading, tail_reading, (*range_count)+1);
+      *range_count = 0;
     }
-  }
+
 }
 
 void getHead(int range_count, int head, int* head_reading)
