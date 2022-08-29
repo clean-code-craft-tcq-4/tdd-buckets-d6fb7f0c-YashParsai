@@ -43,7 +43,7 @@ void compute_range(int* reading, int size)
     }
     else if(range_count)
     {
-      tail_reading = reading[index-1];
+      tail_reading = reading[index];
       write_data_to_file(head_reading, tail_reading, range_count+1);
       range_count = 0;
     }
