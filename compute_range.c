@@ -11,6 +11,11 @@ int main()
   compute_range(range_reading, (sizeof(range_reading)/sizeof(int)));
 }
 
+int cmpfunc (const void * a, const void * b) 
+{
+   return ( *(int*)a - *(int*)b );
+}
+
 
 void compute_range(int* reading, int size)
 {
@@ -21,7 +26,7 @@ void compute_range(int* reading, int size)
   int head_reading;
   int tail_reading;
   
-  sortReading(reading, size);
+  qsort(reading, size, sizeof(int), cmpfunc);
   
   for(index; index < size ;index++)
   {
@@ -66,23 +71,4 @@ int get_next_reading(int index, int size, int* reading)
     return reading[index+1];
   }
   return 0;
-}
-
-//Sorting ranges in asceding order
-void sortReading(int* reading, int size)
-{
-  int temp;
-  
-  for (int i = 0; i < size; i++) 
-  {     
-      for (int j = i+1; j < size; j++) 
-      {     
-         if(reading[i] > reading[j]) 
-         {    
-             temp = reading[i];    
-             reading[i] = reading[j];    
-             reading[j] = temp;    
-         }     
-      }     
-  }
 }
