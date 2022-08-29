@@ -48,11 +48,13 @@ void compute_range(int* reading, int size)
   }
 }
 
-void write_data_to_csv(int head, int tail, int range)
+void write_data_to_file(int head, int tail, int range)
 {
-  FILE* csv_fp = fopen("range_record.txt", "a");
-  fprintf(csv_fp,"%d-%d, %d\n",head, tail, range);
-  fclose(csv_fp);
+  FILE* fp = fopen("range_record.txt", "a");
+  if(fp==NULL)
+    assert(0);
+  fprintf(fp,"%d-%d, %d\n",head, tail, range);
+  fclose(fp);
 }
 
 int get_next_reading(int index, int size, int* reading)
