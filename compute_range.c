@@ -11,14 +11,14 @@ int main()
   compute_range(range_reading, (sizeof(range_reading)/sizeof(int)));
 }
 
-int cmpfunc (const void * a, const void * b) 
+int compareForAscending (const void * a, const void * b) 
 {
    return ( *(int*)a - *(int*)b );
 }
 
 void compute_range(int* reading, int size)
 {
-   qsort(reading, size, sizeof(int), cmpfunc);
+   qsort(reading, size, sizeof(int), compareForAscending);
    getRanges(reading, size);
 }
 
