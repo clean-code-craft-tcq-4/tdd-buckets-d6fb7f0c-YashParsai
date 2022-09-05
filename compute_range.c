@@ -5,11 +5,11 @@
 
 #include "compute_range.h"
 
-int main()
+/*int main()
 {
   int range_reading[10] = {0,1,2,3,0,6,7,0,10,12};
   compute_range(range_reading, (sizeof(range_reading)/sizeof(int)));
-}
+}*/
 
 int compareForAscending (const void * a, const void * b) 
 {
