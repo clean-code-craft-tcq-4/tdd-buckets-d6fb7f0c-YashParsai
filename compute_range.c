@@ -98,11 +98,11 @@ void compute_range(char* buffer_range, int* reading, int size)
 }
 
 
-int main()
+/*int main()
 {
   char buffer_range[120] = {0};
   int range_reading[10] = {0,1,2,3,0,6,7,0,10,11};
   compute_range(buffer_range, range_reading, (sizeof(range_reading)/sizeof(int)));
 
   printf("%s",buffer_range);
-}
+}*/
