@@ -14,7 +14,7 @@ int main()
   printf("%s",buffer_range);
   printf("%s",actual_range_string);
   
-  if(!strcmp(buffer_range,actual_range_string))
+  if(strcmp(buffer_range,actual_range_string))
   {
     assert(0);
   }
