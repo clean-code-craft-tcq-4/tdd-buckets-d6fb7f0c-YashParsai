@@ -11,6 +11,9 @@ int main()
    
   compute_range(buffer_range, range_reading, (sizeof(range_reading)/sizeof(int)));
   
+  printf("%s",buffer_range);
+  printf("%s",actual_range_string);
+  
   if(!strcmp(buffer_range,actual_range_string))
   {
     assert(0);
