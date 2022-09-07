@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "assert.h"
+#include "compute_range.h"
 
 int main()
 {
